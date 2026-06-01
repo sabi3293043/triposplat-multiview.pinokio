@@ -1,0 +1,24 @@
+{
+  "title": "TripoSplat",
+  "description": "Image-to-3D Gaussian splat generation from VAST-AI-Research. Requires a CUDA-capable GPU.",
+  "icon": "icon.png",
+  "links": [
+    {
+      "title": "TripoSplat",
+      "links": [
+        {
+          "title": "GitHub",
+          "value": "https://github.com/VAST-AI-Research/TripoSplat"
+        },
+        {
+          "title": "Model Weights",
+          "value": "https://huggingface.co/VAST-AI/TripoSplat"
+        },
+        {
+          "title": "Paper",
+          "value": "https://arxiv.org/abs/2605.16355"
+        }
+      ]
+    }
+  ]
+}
