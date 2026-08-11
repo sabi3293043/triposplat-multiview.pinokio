@@ -1,51 +1,60 @@
-# TripoSplat Pinokio Launcher
+# TripoSplat Native Multi-view for Pinokio
 
-This launcher installs and runs [TripoSplat](https://github.com/VAST-AI-Research/TripoSplat), an image-to-3D Gaussian splat generator from VAST-AI-Research and TripoAI.
+One-click Pinokio installer for `https://github.com/sabi3293043/TripoSplat`, a public fork of the
+official TripoSplat repository with native multi-view generation.
 
-## Requirements
+## What it installs
 
-- CUDA-capable NVIDIA GPU. The upstream demo hardcodes `device="cuda"`.
-- Python dependencies are installed into the launcher-managed `env` virtual environment.
-- Model weights are downloaded from `VAST-AI/TripoSplat` on Hugging Face into `app/ckpts`.
-- Plan for roughly 4 GB for model weights, plus the cloned app, Python packages, generated `gradio_outputs`, and caches.
+- The linked TripoSplat source fork.
+- An isolated Python environment inside the app folder.
+- PyTorch selected by Pinokio for the detected platform and GPU.
+- Official TripoSplat weights from `VAST-AI/TripoSplat` on Hugging Face.
 
-TripoSplat does not currently expose an official low-VRAM launch flag. The Gradio UI can lower the generated Gaussian count from `262144` down to `32768`, which reduces output density and rendering cost after the model is loaded.
+TRELLIS model weights are not installed. TRELLIS contributes only the
+tuning-free MultiDiffusion sampling pattern and attributed example images.
 
-## Usage
+## Install
 
-1. Click **Install** to clone the upstream repository, install dependencies, install PyTorch, and download checkpoints.
-2. Click **Start** to launch the Gradio web UI.
-3. Upload an image or choose one of the bundled examples.
-4. Choose the number of Gaussians and output format, then click **Generate**.
+1. Install [Pinokio](https://pinokio.computer/).
+2. In Pinokio, download this repository URL.
+3. Select **Install**.
+4. After installation completes, select **Start**.
+5. Select **Open Web UI**.
 
-Generated files are saved under `app/gradio_outputs`.
+The first installation downloads several gigabytes. Choose a Pinokio home on a
+drive with enough space before installing. Checkpoints, Python packages, and
+outputs are stored locally and never committed to GitHub.
 
-## API Usage
+## Update
 
-The launcher starts TripoSplat's Gradio UI. Use the local URL shown by Pinokio after **Start** as `BASE_URL`.
+Choose **Update** in Pinokio. The launcher pulls this repository, pulls the
+linked TripoSplat source fork, and refreshes official model weights if needed.
 
-### JavaScript
+## Reset
 
-```javascript
-const baseUrl = "BASE_URL";
-const response = await fetch(`${baseUrl}/`);
-console.log(await response.text());
-```
+**Reset** removes the local cloned source and its Python environment. Generated
+outputs inside that source folder are removed too, so download anything you
+want to keep first. The public GitHub repositories are unaffected.
 
-### Python
+## Multi-view modes
 
-```python
-import requests
+- Use any number of arbitrary free-angle images. The first sets reference
+  orientation.
+- Optionally use approximate Front-ish, Back-ish, Left-ish, and Right-ish slots.
+- Guided and free-angle inputs work together.
+- MultiDiffusion is recommended; Stochastic is faster.
 
-base_url = "BASE_URL"
-response = requests.get(base_url, timeout=30)
-print(response.status_code)
-```
+See the source fork's
+[installation](https://github.com/sabi3293043/TripoSplat/blob/main/docs/INSTALLATION.md),
+[usage](https://github.com/sabi3293043/TripoSplat/blob/main/docs/USAGE.md), and
+[troubleshooting](https://github.com/sabi3293043/TripoSplat/blob/main/docs/TROUBLESHOOTING.md)
+documents for details.
 
-### Curl
+## Credits and license
 
-```bash
-curl BASE_URL/
-```
+- [VAST-AI-Research/TripoSplat](https://github.com/VAST-AI-Research/TripoSplat)
+- [microsoft/TRELLIS](https://github.com/microsoft/TRELLIS)
+- [cocktailpeanut/triposplat.pinokio.git](https://github.com/cocktailpeanut/triposplat.pinokio.git)
 
-For generation automation, inspect the running Gradio app's API view after launch because upstream currently ships a UI-first demo rather than a documented stable REST contract.
+This launcher retains its upstream license and the source fork retains
+TripoSplat's MIT license and third-party notices.

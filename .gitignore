@@ -1,0 +1,5 @@
+app/
+cache/
+logs/
+*.log
+trellis_repair.js

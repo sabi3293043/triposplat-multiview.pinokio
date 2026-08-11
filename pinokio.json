@@ -1,22 +1,26 @@
 {
-  "title": "TripoSplat",
-  "description": "Image-to-3D Gaussian splat generation from VAST-AI-Research. Requires a CUDA-capable GPU.",
+  "title": "TripoSplat Native Multi-view",
+  "description": "TripoSplat-native single-image and multi-image Gaussian splat generation using a TRELLIS-style tuning-free sampler. No TRELLIS model weights are used.",
   "icon": "icon.png",
   "links": [
     {
-      "title": "TripoSplat",
+      "title": "Project",
       "links": [
         {
-          "title": "GitHub",
+          "title": "Multi-view source fork",
+          "value": "https://github.com/sabi3293043/TripoSplat"
+        },
+        {
+          "title": "Original TripoSplat",
           "value": "https://github.com/VAST-AI-Research/TripoSplat"
         },
         {
-          "title": "Model Weights",
+          "title": "Model weights",
           "value": "https://huggingface.co/VAST-AI/TripoSplat"
         },
         {
-          "title": "Paper",
-          "value": "https://arxiv.org/abs/2605.16355"
+          "title": "TRELLIS sampling reference",
+          "value": "https://github.com/microsoft/TRELLIS/blob/main/trellis/pipelines/trellis_image_to_3d.py"
         }
       ]
     }
