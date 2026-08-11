@@ -1,7 +1,7 @@
 module.exports = {
   version: "7.0",
   title: "TripoSplat",
-  description: "TripoSplat converts a single 2D image into high-quality 3D Gaussian splats. CUDA GPU required. https://github.com/VAST-AI-Research/TripoSplat",
+  description: "TripoSplat single-image and TripoSplat-native multi-image Gaussian generation using a TRELLIS-style tuning-free sampler. No TRELLIS model weights are used. CUDA GPU required. https://github.com/sabi3293043/TripoSplat",
   icon: "icon.png",
   menu: async (kernel, info) => {
     let installed = info.exists("app/env")

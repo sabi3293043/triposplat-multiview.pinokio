@@ -8,7 +8,7 @@ module.exports = {
       method: "shell.run",
       params: {
         message: [
-          "git clone https://github.com/VAST-AI-Research/TripoSplat.git app"
+          "git clone https://github.com/sabi3293043/TripoSplat.git app"
         ]
       }
     },
@@ -42,4 +42,4 @@ module.exports = {
       }
     }
   ]
-}
+};
